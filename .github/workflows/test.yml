@@ -34,7 +34,7 @@ jobs:
 
             - name: Scan Only Changed File for Secrets
               run: |
-                git diff --name-only ${{ github.event.befor }} ${{ github.sha }} > changed_files.txt
+                git diff --name-only ${{ github.event.before }} ${{ github.sha }} > changed_files.txt
                 if [ -s changed_files.txt ]; then
                   git secrets --scan $(cat changed_files.txt)
                 else
