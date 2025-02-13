@@ -49,6 +49,6 @@ if (-Not $installed){
 #     }
 }
 
-# git secrets --install
+git secrets --install
 
 # Write-Host "Completed"
