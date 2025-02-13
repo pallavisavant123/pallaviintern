@@ -30,7 +30,7 @@ jobs:
             - name: Configure git-secrets
               run: |
                 git secrets --install
-                git secrets --add "forbiden"
+                git secrets --add "juice"
 
             - name: Scan Only Changed File for Secrets
               run: |
