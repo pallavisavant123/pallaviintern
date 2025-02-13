@@ -17,8 +17,8 @@ jobs:
             - name: Set Execution Policy for PowerShell
               run: Set-ExecutionPolicy Bypass -Scope Process -Force
 
-            # - name: Run Powershell Instalation Script
-            #   run: scripts/script.ps1
+            - name: Run Powershell Instalation Script
+              run: scripts/script.ps1
 
             # - name: Scan for secrets
             #   run: |
