@@ -14,8 +14,8 @@ jobs:
             - name: Checkout Repository
               uses: actions/checkout@v3
 
-            - name: Set Execution Policy for PowerShell
-              run: Set-ExecutionPolicy Bypass -Scope Process -Force
+            # - name: Set Execution Policy for PowerShell
+            #   run: Set-ExecutionPolicy Bypass -Scope Process -Force
 
             - name: Install git-secrets
               run: |
