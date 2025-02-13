@@ -30,7 +30,7 @@ if (-Not $installed){
         cd .\git-secrets-master
         $repoPath = Get-Location
         Write-Host $repoPath
-        Start-Process -FilePath "C:\Windows\System32\WindowsPowershell\v1.0\powershell.exe" -ArgumentList ".\install.ps1" -Wait -NoNewWindow
+        Start-Process -FilePath "C:\Windows\System32\WindowsPowershell1\v1.0\powershell.exe" -ArgumentList ".\install.ps1" -Wait -NoNewWindow
         cd ..
         $repoPath = Get-Location
         Write-Host $repoPath
