@@ -32,6 +32,21 @@ jobs:
                 git secrets --install
                 git secrets --add "forbiden"
 
+            - name: Scan Only Changed File for Secrets
+              run: |
+                git diff --name-only ${{ github.event.befor }} ${{ github.sha }} > changed_files.txt
+                if [ -s changed_files.txt ]; then
+                  git secrets --scan $(cat changed_files.txt)
+                else
+                  echo "No files changed. Skipping secret scan."
+                fi
+
+            - name: Fail if Secrets Are Found
+              if: failure()
+              run: |
+                echo "Error: Secrets detected"
+                exit 1
+
             # - name: Scan for secrets
             #   run: |
             #     git secrets --scan
