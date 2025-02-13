@@ -27,6 +27,11 @@ jobs:
             # - name: Run Powershell Instalation Script
             #   run: scripts/script.ps1
 
+            - name: Configure git-secrets
+              run: |
+                git secrets --install
+                git secrets --add "forbiden"
+
             # - name: Scan for secrets
             #   run: |
             #     git secrets --scan
