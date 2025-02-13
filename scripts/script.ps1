@@ -26,7 +26,7 @@ if (-Not $installed){
         cd .\git-secrets-masters
         Start-Process -FilePath "C:\Windows\System32\WindowsPowershell\v1.0\powershell.exe" -ArgumentList ".\install.ps1" -Wait -NoNewWindow
         cd ..
-        Remove-Item -Recurse -Force "git-secrets-masters"
+        Remove-Item -Recurse -Force "git-secrets-master"
 
 
     }
