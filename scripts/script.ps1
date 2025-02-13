@@ -28,8 +28,10 @@ if (-Not $installed){
         git clone https://github.com/awslabs/git-secrets.git "git-secrets-master"
         Write-Host $repoPath
         cd .\git-secrets-master
+        Write-Host $repoPath
         Start-Process -FilePath "C:\Windows\System32\WindowsPowershell\v1.0\powershell.exe" -ArgumentList ".\install.ps1" -Wait -NoNewWindow
         cd ..
+        Write-Host $repoPath
         Remove-Item -Recurse -Force "git-secrets-master"
 
 
