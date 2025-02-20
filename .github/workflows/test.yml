@@ -64,23 +64,23 @@ jobs:
 
                 echo "No Secrets found"
 
-            - name: Auto-Close PR If Secrets Found
-              if: failure()
-              uses: actions/github-script@v6
-              with:
-                github-token: ${{ secrets.GITHUB_TOKEN}}
-                script: |
-                   const prNumber = context.payload.pull_request.number;
-                   const repoOwner = context.repo.owner;
-                   const repoName = context.repo.repo;
+            # - name: Auto-Close PR If Secrets Found
+            #   if: failure()
+            #   uses: actions/github-script@v6
+            #   with:
+            #     github-token: ${{ secrets.GITHUB_TOKEN}}
+            #     script: |
+            #        const prNumber = context.payload.pull_request.number;
+            #        const repoOwner = context.repo.owner;
+            #        const repoName = context.repo.repo;
 
-                   console.log("closing PR")
+            #        console.log("closing PR")
 
-                    await github.rest.pulls.update({
-                      owner: repoOwner,
-                      repo: repoName,
-                      pull_number: prNumber,
-                      state: "closed"
-                    });
+            #         await github.rest.pulls.update({
+            #           owner: repoOwner,
+            #           repo: repoName,
+            #           pull_number: prNumber,
+            #           state: "closed"
+            #         });
             
 
