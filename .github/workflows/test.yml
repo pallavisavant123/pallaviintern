@@ -43,7 +43,7 @@ jobs:
               run: |
                 CHANGED_FILES=$(cat changed_files.txt)
 
-                if [-z "$CHANGED_FILES" ]; then
+                if [ -z "$CHANGED_FILES" ]; then
                   echo "No files changed. Skipping git-secrts scan"
                   exit 0
                 fi
