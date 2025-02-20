@@ -67,10 +67,10 @@ jobs:
                 github-token: ${{ secrets.GITHUB_TOKEN}}
                 script: |
                   github.pulls.update({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  ull_number: context.payload.pull_request.number,
-                  state: "closed"
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    pull_number: context.payload.pull_request.number,
+                    state: "closed"
                   });
                   console.log("PR closed")
             
