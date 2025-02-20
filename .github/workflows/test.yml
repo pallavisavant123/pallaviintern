@@ -37,7 +37,7 @@ jobs:
               id: changed-files
               run: |
                 git fetch origin ${{ github.base_ref }} --depth=1
-                git diff --name-only origin/${{ github.base_ref }} > changed_files.txt
+                git diff --name-only origin/${{ github.base_ref }} | grep -v '^.github/workflows/test.yml$' > changed_files.txt
                 echo "Changed files"
                 cat changed_files.txt
                 echo "CHANGED_FILES=$(cat changed_files.txt | tr '\n' ' ')" >> $GITHUB_ENV
