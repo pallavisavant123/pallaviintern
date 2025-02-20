@@ -66,12 +66,17 @@ jobs:
               with:
                 github-token: ${{ secrets.GITHUB_TOKEN}}
                 script: |
-                  github.pulls.update({
-                    owner: context.repo.owner,
-                    repo: context.repo.repo,
-                    pull_number: context.payload.pull_request.number,
-                    state: "closed"
-                  });
-                  console.log("PR closed")
+                   const prNumber = context.payload.pull_request.number;
+                   const repoOwner = cntext.repo.owner;
+                   const repoName = context.repo.repo;
+
+                   console.log("closing PR")
+
+                    await github.rest.pulls.update({
+                      owner: repoOwner,
+                      repo: repoName,
+                      pull_number: prNumber,
+                      state: "closed"
+                    });
             
 
