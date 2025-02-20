@@ -33,7 +33,7 @@ jobs:
               id: changed-files
               run: |
                 git fetch origin ${{ github.base_ref }} --depth=1
-                git diff --name-only origin/${{ github.base_ref }} ${{ github.base_ref }} > changed_files.txt
+                git diff --name-only origin/${{ github.base_ref }} > changed_files.txt
                 echo "Changed files"
                 cat changed_files.txt
                 echo "CHANGED_FILES=$(cat chaged_files.txt | tr '\n' ' ')" >> $GITHUB_ENV
@@ -50,7 +50,7 @@ jobs:
 
                 echo "Scanning changed files for secrets..."
                 for FILE in $CHANGED_FILES; do
-                 if [ -f "$FILE"]; THEN
+                 if [ -f "$FILE"]; then
                    if ! git secrets --scan "$FILE"; then
                      echo "ERROR: Secrets detected in $FILE"
                      exit 1
@@ -73,6 +73,5 @@ jobs:
                   state: "closed"
                   });
                   console.log("PR closed")
-
             
 
