@@ -67,7 +67,7 @@ jobs:
                 github-token: ${{ secrets.GITHUB_TOKEN}}
                 script: |
                    const prNumber = context.payload.pull_request.number;
-                   const repoOwner = cntext.repo.owner;
+                   const repoOwner = context.repo.owner;
                    const repoName = context.repo.repo;
 
                    console.log("closing PR")
