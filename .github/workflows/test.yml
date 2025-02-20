@@ -3,6 +3,10 @@ name: "Block PRs with Restricted Words in Files"
 on:
   pull_request:
     types:  [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
   
 jobs:
     check-restricted-files:
