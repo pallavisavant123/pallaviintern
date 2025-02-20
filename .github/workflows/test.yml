@@ -2,7 +2,7 @@ name: "Block PRs with Restricted Words in Files"
 
 on:
   pull_request:
-    types:  [opened, edited, synchronize]
+    types:  [opened, edited, synchronize, reopened]
   
 jobs:
     check-restricted-files:
@@ -50,7 +50,7 @@ jobs:
 
                 echo "Scanning changed files for secrets..."
                 for FILE in $CHANGED_FILES; do
-                 if [ -f "$FILE"]; then
+                 if [ -f "$FILE" ]; then
                    if ! git secrets --scan "$FILE"; then
                      echo "ERROR: Secrets detected in $FILE"
                      exit 1
