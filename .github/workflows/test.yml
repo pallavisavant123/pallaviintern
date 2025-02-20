@@ -62,7 +62,7 @@ jobs:
 
             - name: Auto-Close PR If Secrets Found
               if: failure()
-              uses: acions/github-script@v6
+              uses: actions/github-script@v6
               with:
                 github-token: ${{ secrets.GITHUB_TOKEN}}
                 script: |
