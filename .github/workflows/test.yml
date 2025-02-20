@@ -36,7 +36,7 @@ jobs:
                 git diff --name-only origin/${{ github.base_ref }} > changed_files.txt
                 echo "Changed files"
                 cat changed_files.txt
-                echo "CHANGED_FILES=$(cat chaged_files.txt | tr '\n' ' ')" >> $GITHUB_ENV
+                echo "CHANGED_FILES=$(cat changed_files.txt | tr '\n' ' ')" >> $GITHUB_ENV
             
             - name: Scan Changed Files with git-secrets
               id: git-secrets-check
